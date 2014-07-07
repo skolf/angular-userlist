@@ -1,0 +1,15 @@
+<ul class="list-inline">
+  <li ng-hide="page==0">
+    <a href="#" ng-click="changePage(page-1)">
+      <i class="fa fa-angle-double-left"></i> Previous {{perPage}} {{pageSuffix}}
+    </a>
+  </li>
+  <li>
+    Showing {{pageMin}}-{{pageMax}} of {{pageTotal}} {{pageSuffix}}
+  </li>
+  <li ng-hide="pageMax >= pageTotal">
+    <a href="#" ng-click="changePage(page+1)">
+      <i class="fa fa-angle-double-right"></i> Next {{perPage}} {{pageSuffix}}
+    </a>
+  </li>
+</ul>

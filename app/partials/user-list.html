@@ -1,0 +1,85 @@
+<div
+  class="row"
+  ng-repeat="user in users | filter: search | sortUsers: orderProp : orderDesc | startFrom: page*perPage | limitTo: perPage">
+  <div class="col-xs-3">
+    <span ng-show="!user.editing">{{user.lastname}}</span>
+    <span ng-show="user.editing">
+      <input
+        type="text"
+        placeholder="Enter a last name"
+        ng-model="user.lastname"
+        class="form-control"
+        ng-class="{'has-error': (!user.lastname || user.lastname == '')}" />
+    </span>
+  </div>
+  <div class="col-xs-2">
+    <span ng-show="!user.editing">{{user.firstname}}</span>
+    <span ng-show="user.editing">
+      <input
+        type="text"
+        placeholder="Enter a first name"
+        ng-model="user.firstname"
+        class="form-control"
+        ng-class="{'has-error': (!user.firstname || user.firstname == '')}" />
+    </span>
+  </div>
+  <div class="col-xs-1">
+    <span ng-show="!user.editing">{{user.age}}</span>
+    <span ng-show="user.editing">
+      <input type="text" placeholder="Age" ng-model="user.age" class="form-control" />
+    </span>
+  </div>
+  <div class="col-xs-3">
+    <span ng-show="!user.editing">{{user.email}}</span>
+    <span ng-show="user.editing">
+      <input
+        type="text"
+        placeholder="email@yourdomain.com"
+        ng-model="user.email"
+        class="form-control"
+        ng-class="{'has-error': (!user.email || user.email == '')}" />
+    </span>
+  </div>
+  <div class="col-xs-1">
+    <span ng-show="!user.editing && user.created">
+      <div>{{user.created*1000 | date:"MM/dd/yyyy"}}</div>
+      <div>{{user.created*1000 | date:"h:mm:ss a"}}</div>
+    </span>
+  </div>
+  <div class="col-xs-1">
+    <span ng-show="!user.editing && user.updated">
+      <div>{{user.updated*1000 | date:"MM/dd/yyyy"}}</div>
+      <div>{{user.updated*1000 | date:"h:mm:ss a"}}</div>
+    </span>
+  </div>
+  <div class="col-xs-1">
+    <span ng-show="!user.editing">
+      <i class="fa fa-check" ng-hide="!user.active"></i>
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-sm btn-default" ng-click="editUser(user)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button type="button" class="btn btn-sm btn-default" ng-click="destroyUser(user)">
+          <i class="fa fa-trash-o"></i>
+        </button>
+      </div>
+    </span>
+    <span ng-show="user.editing">
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-sm btn-default"
+          ng-click="toggleUserActive(user)"
+          ng-class="user.active ? 'active' : ''">
+          <i class="fa fa-check"></i>
+        </button>
+        <button type="button" class="btn btn-sm btn-danger" ng-click="revertUser(user)">
+          <i class="fa fa-undo"></i>
+        </button>
+        <button type="button" class="btn btn-sm btn-success" ng-click="saveUser(user)">
+          <i class="fa fa-check"></i>
+        </button>
+      </div>
+    </span>
+  </div>
+</div>
