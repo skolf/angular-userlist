@@ -24,16 +24,34 @@ input.has-error {
   padding-bottom: 8px;
   font-size: 15px;
   line-height: 20px;
-  vertical-align: middle; }
+  vertical-align: middle;
 
-@media (max-width: 779px) {
-  .sortable {
-    font-size: 14px; }
-}
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, #BABABA),
+    color-stop(1, #DBDBDB)
+  );
+  background-image: -o-linear-gradient(bottom, #BABABA 0%, #DBDBDB 100%);
+  background-image: -moz-linear-gradient(bottom, #BABABA 0%, #DBDBDB 100%);
+  background-image: -webkit-linear-gradient(bottom, #BABABA 0%, #DBDBDB 100%);
+  background-image: -ms-linear-gradient(bottom, #BABABA 0%, #DBDBDB 100%);
+  background-image: linear-gradient(to bottom, #BABABA 0%, #DBDBDB 100%); }
+  .sortable:hover {
+    background: #5e5e5e;
+    color: #aeaeae;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.2); }
+  @media (max-width: 779px) {
+    .sortable {
+      font-size: 14px; }
+  }
 
 .sort-true, .sort-false {
-  background: #333;
-  color: #aeaeae; }
+  background: #5e5e5e;
+  color: #aeaeae;
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+  text-shadow: 0 -1px 0 #030303; }
 
 .sort-false:after,
 .sort-true:after {
@@ -49,20 +67,43 @@ input.has-error {
   .sort-true:after {
     content: "\f0d8"; }
 
-/* table rows */
+/* table */
 .dx-table {
-  margin: 0 15px 0 15px; }
+  padding: 0 15px 0 15px;
+  border: 1px solid #9e9e9e; }
 .dx-table-header {
   background: #aeaeae;
   border-bottom: 1px solid #9e9e9e;
   color: #333;
 }
-.dx-table-body .row:nth-child(odd) {
-  background: #C4C4C4;
-  color: #555; }
+.dx-table-body .dx-table-row {
+  padding: 4px 0;
+  }
+  .dx-table-body .dx-table-row:nth-child(odd) {
+    background: #d3d3d3;
+    color: #555; }
+.dx-table .time {
+  font-size: 13px;
+  color: #7e7e7e; }
+.dx-table-toolbar .btn-group {
+  margin-top: -8px; }
+
+/* buttons */
+.btn {
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.2); }
+.btn-default {
+  text-shadow: 0 -1px 0 #fefefe; }
+.btn-primary {
+  text-shadow: 0 -1px 0 #030303; }
+.btn-sm {
+  padding: 5px 4px; }
 
 /* pagination */
-.dx-pagination>li {
-   }
+.dx-pagination {
+  margin-top: 0; }
   .dx-pagination>li>a {
     padding: 7px 0 7px 0; }
+
+/* icon styles */
+.icon-success {
+  color: #009900; }
